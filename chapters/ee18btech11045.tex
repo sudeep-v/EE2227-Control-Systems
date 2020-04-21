@@ -20,37 +20,51 @@ On Simplifying,
 \begin{align}
     C(s) = \frac{1}{s}-\frac{s+\zeta\omega_n}{(s + \zeta\omega_n)^2 + \omega_d^2} - \frac{\zeta\omega_n}{\omega_d}.\frac{\omega_d}{(s + \zeta\omega_n)^2 + \omega_d^2}  
 \end{align}
+
 where, 
 \begin{align}
     \omega_d=\omega_n\sqrt{1-\zeta^2}
 \end{align}
+
 In time domain, 
 \begin{align}
     c(t) = \mathcal{L}^{-1}{C(s)}
 \end{align}
-Using this:
+
 \begin{align}
+    \implies
     c(t) = 1 - e^-\zeta\omega_nt(cos\omega_dt+\dfrac{\zeta}{\sqrt{1-\zeta^2}}.sin\omega_dt)
     \label{eq:eebtech11045_ct}
 \end{align}
 
  \textbf{Peak Overshoot:}
- Peak Overshoot is the difference between the magnitude of the highest peak of time response and magnitude in its steady state. Peak Overshoot is expressed in term of percentage of steady-state value of the response.
+Peak overshoot Mp is defined as the deviation of the response at peak time from the final value of response.
 \begin{align}
-    \implies M_p = \frac{c(t_p) - c(\infty)}{c(\infty)} * 100 \%
+    \implies M_p = c(t_p) - c(\infty)
+    \label{eq:eebtech11045_Mp}
 \end{align}
 
-To find Peak Overshoot: find max of c(t)
+At $t_p$:
 \begin{align}
     \frac{dc(\emph{t})}{d(\emph{t})} = 0
 \end{align}
 
 Applying this condition on \eqref{eq:eebtech11045_ct}:
 \begin{align}
-    \implies t_{max} = \frac{\pi}{\omega_n\sqrt{1-\zeta^2}}
+    \implies t_p = \frac{\pi}{\omega_n\sqrt{1-\zeta^2}}
 \end{align}
 
-Substituting this value of t in \eqref{eq:eebtech11045_ct}:
+Substituting $t_p$ in \eqref{eq:eebtech11045_ct}:
+\begin{align}
+    c(t_p) = 1 + e^{\frac{-\zeta\pi}{\sqrt{1-\zeta^2}}}
+\end{align}
+
+From \eqref{eq:eebtech11045_ct}:
+\begin{align}
+    \lim_{t \to \infty} c(t) = 1
+\end{align}
+
+Substituting the value of $c(t_p)$ and $c(\infty)$ in \eqref{eq:eebtech11045_Mp}:
 \begin{align}
     M_p (PeakOvershoot) = e^{\frac{-\zeta\pi}{\sqrt{1-\zeta^2}}}
     \label{eq:ee18btech11045_Mp}
@@ -58,7 +72,7 @@ Substituting this value of t in \eqref{eq:eebtech11045_ct}:
 
 \item Find the peak Overshoot for the following second order control system
 \begin{align}
-    G(S) = \frac{100}{s^2 + 10s +100}    
+    G(S) = \frac{100}{s^2 + 10s +100}
 \end{align}
 
 \solution
@@ -83,10 +97,7 @@ codes/ee18btech11045.py
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=\columnwidth]{./figs/ee18btech11045/ee18btech11045.eps}
-    \caption{c(t) vs t plot}
-    \label{fig:ee18btech11045_plot} 
+    \includegraphics[width=\columnwidth]{figs/ee18btech11045/ee18btech11045.eps}
 \end{figure}
-
 
 \end{enumerate}
