@@ -1,15 +1,15 @@
 \begin{enumerate}[label=\thesubsection.\arabic*.,ref=\thesubsection.\theenumi]
 \numberwithin{equation}{enumi}
-\item Find the peak Overshoot due to a unit step input for the following second order control system.
-\begin{align}
-    G(S) = \frac{100}{s^2 + 10s +100}    
-\end{align}
+
+\item Find the expression of peak overshoot for a second order control system.
 
 \solution
+
 The transfer function for a second order control system is:
 \begin{align}
     \frac{C(s)}{R(s)}= \frac{\omega_n^2}{s^2 + 2\zeta\omega_ns + \omega_n^2}
 \end{align}
+
 To calculate the unit step response,
 \begin{align}
     r(t) = 1 \implies R(s) = \frac{1}{s}    
@@ -37,40 +37,56 @@ Using this:
  \textbf{Peak Overshoot:}
  Peak Overshoot is the difference between the magnitude of the highest peak of time response and magnitude in its steady state. Peak Overshoot is expressed in term of percentage of steady-state value of the response.
 \begin{align}
-    \implies M_p = \dfrac{c(t_p) - c(\infty)}{c(\infty)} * 100 \%
+    \implies M_p = \frac{c(t_p) - c(\infty)}{c(\infty)} * 100 \%
 \end{align}
+
 To find Peak Overshoot: find max of c(t)
 \begin{align}
     \frac{dc(\emph{t})}{d(\emph{t})} = 0
 \end{align}
+
 Applying this condition on \eqref{eq:eebtech11045_ct}:
 \begin{align}
-    \implies t = \frac{\pi}{\omega_n\sqrt{1-\zeta^2}}
+    \implies t_{max} = \frac{\pi}{\omega_n\sqrt{1-\zeta^2}}
 \end{align}
+
 Substituting this value of t in \eqref{eq:eebtech11045_ct}:
 \begin{align}
-    M_p (PeakOvershoot) = e^{\dfrac{-\zeta\pi}{\sqrt{1-\zeta^2}}}
+    M_p (PeakOvershoot) = e^{\frac{-\zeta\pi}{\sqrt{1-\zeta^2}}}
     \label{eq:ee18btech11045_Mp}
 \end{align}
-For the given Equation : G(S) = $\dfrac{100}{s^2 + 10s +100}$
+
+\item Find the peak Overshoot for the following second order control system
 \begin{align}
-    \zeta = 0.5
+    G(S) = \frac{100}{s^2 + 10s +100}    
 \end{align}
-Substituting this value of zeta in \eqref{eq:ee18btech11045_Mp}, we get:
+
+\solution
+
+For the given Equation : 
+\begin{align}
+   \zeta = 0.5
+\end{align}
+
+Substitute this value of zeta in \eqref{eq:ee18btech11045_Mp} to get:
 \begin{align}
      M_p = 0.163
 \end{align}
 
-\textbf{Plotting c(t)}
+\item Verify using a Python Plot
+
+\solution
+
+\begin{lstlisting}
+codes/ee18btech11045.py
+\end{lstlisting}
+
 \begin{figure}[!h]
     \centering
     \includegraphics[width=\columnwidth]{./figs/ee18btech11045/ee18btech11045.eps}
     \caption{c(t) vs t plot}
     \label{fig:ee18btech11045_plot} 
 \end{figure}
-From the plot, the peak overshoot can be verified to be 0.163.
-The following code is used to plot c(t).
-\begin{lstlisting}
-codes/ee18btech11045.py
-\end{lstlisting}
+
+
 \end{enumerate}
