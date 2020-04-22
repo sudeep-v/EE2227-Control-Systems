@@ -13,8 +13,8 @@ t = np.linspace(0,t_end,500)
 
 x,y = ct.step_response(G,t)
 
-overshoot = max(y)
-final_value = y[len(t)-1]
+overshoot = round(max(y),2)
+final_value = round(y[len(t)-1],2)
 
 plt.hlines(overshoot, xmin = 0, xmax = t_end, color = 'red')
 plt.text(0,overshoot+0.02, overshoot, ha='left', va='center')
@@ -25,4 +25,5 @@ plt.text(0,final_value+0.02, final_value, ha='left', va='center')
 plt.plot(x,y)
 plt.xlabel("time")
 plt.ylabel("c(t)")
+plt.grid()
 plt.show()
