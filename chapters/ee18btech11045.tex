@@ -25,7 +25,7 @@ To calculate the unit step response,
 \end{align}
 
 \begin{align}
-    \implies C(S) = \frac{100}{(s)(s^2 + 10s +100)}
+    \implies C(S) = \frac{1}{s}.\frac{100}{s^2 + 10s +100}
 \end{align}
 
 C(s) can be expanded as:
@@ -33,29 +33,49 @@ C(s) can be expanded as:
     C(s) = \frac{1}{s} - \frac{s+5}{(s+5)^2 + 75} - \frac{1}{\sqrt{3}}.\frac{\sqrt{75}}{(s+5)^2 + 75}
 \end{align}
 
-In time domain, 
 \begin{align}
     c(t) = \mathcal{L}^{-1}{C(s)}
 \end{align}
 
 \begin{align}
-    \implies c(t) = 1 - e^{-5t}cos(\sqrt{75}t) - \frac{e^{-5t}}{\sqrt{3}}.sin(\sqrt{75}t)
+    \implies c(t) = 1 - e^{-5t}\cos\brak{\sqrt{75}t} \\ - \frac{e^{-5t}}{\sqrt{3}}.\sin\brak{\sqrt{75}t}
+\end{align}
+
+c(t) can be further simplified to:
+\begin{align}
+    c(t) = 1 - \frac{2e^{-5t}}{\sqrt{3}}.\sin \brak{5\sqrt{3}t + \frac{\pi}{3}}
     \label{eq:eebtech11045_ct}
 \end{align}
 
-From \eqref{eq:eebtech11045_ct}:
+From Final Value theorem:
 \begin{align}
-    \lim_{t \to \infty} c(t) = 1
+    \lim_{s \to 0} s.C(s) = \lim_{t \to \infty} c(t) 
+\end{align}
+
+\begin{align}
+    \implies c(\infty) = \lim_{s \to 0} \frac{100}{s^2 + 10s +100} = 1
 \end{align}
 
 At $t_p$, $c(t)$ is maximum:
+\begin{multline}
+    \implies c'(t)|_{t=t_p} = \frac{10e^{-5t}}{\sqrt{3}}.\sin {\brak{5\sqrt{3}t + \frac{\pi}{3}}}  \\ - \frac{10e^{-5t}}{\sqrt{3}}.\sqrt{3}.\cos \brak{5\sqrt{3}t + \frac{\pi}{3}} = 0
+\end{multline}
+
 \begin{align}
-    \implies \frac{dc(\emph{t})}{d(\emph{t})} = 0
+    \implies \sin {\brak{5\sqrt{3}t + \frac{\pi}{3}}} - \sqrt{3}.\cos \brak{5\sqrt{3}t + \frac{\pi}{3}} = 0
+\end{align}
+    
+\begin{align}
+    \implies \tan \brak{5\sqrt{3}t + \frac{\pi}{3}} = \tan \brak{\frac{\pi}{3}}    
 \end{align}
 
-Applying this condition on \eqref{eq:eebtech11045_ct}, we get:
 \begin{align}
-    t_p = \frac{\pi}{\sqrt{75}}
+    \implies  5\sqrt{3}t_p = n\pi
+\end{align}
+
+The maximum overshoot occurs at $n=1$:
+\begin{align}
+    t_p = \frac{\pi}{\sqrt{75}} = 0.36 
 \end{align}
 
 Substitute $t_p$ in \eqref{eq:eebtech11045_ct} to get $c(t_p)$:
@@ -65,7 +85,7 @@ Substitute $t_p$ in \eqref{eq:eebtech11045_ct} to get $c(t_p)$:
 
 Substitute $c(t_p)$ and $c(\infty)$ in \eqref{eq:eebtech11045_Mp} to get peak overshoot:
 \begin{align}
-    M_p = 1.163 -1 = 0.163
+    M_p = 1.16 - 1 = 0.16
 \end{align}
 
 \item Verify using a Python Plot
