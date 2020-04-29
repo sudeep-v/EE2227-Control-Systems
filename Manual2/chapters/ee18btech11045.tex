@@ -40,10 +40,13 @@ Evaluate at $s = \j\omega$:
 From \eqref{ee18btech11045_gmjw}:
 \begin{align}
     \abs{G_m\brak{\j\omega}} = \frac{\sqrt{\brak{600\omega^2}^2 + \brak{800\omega-100\omega^3}^2}}{\sqrt{\brak{800 - 97\omega^2}^2+\brak{610\omega-\omega^3}^2}}
-    \\
-    \phase G_m\brak{\j\omega} = \tan^{-1}\brak{\frac{\omega^2 - 8}{6\omega}}
-    -\tan^{-1}\brak{\frac{610\omega-\omega^3}{800-97\omega^2}}
 \end{align}
+\begin{multline}
+    \phase G_m\brak{\j\omega} = \tan^{-1}\brak{\frac{\omega^2 - 8}{6\omega}}
+    \\-\tan^{-1}\brak{\frac{610\omega-\omega^3}{800-97\omega^2}}
+\end{multline}    
+    
+
     
 The following code plots the bode magnitude and phase plots in Fig. \ref{fig:ee18btech11045_bode1}:
 
@@ -100,7 +103,7 @@ Solving the above equation:
     \abs{G\brak{\j\omega}H\brak{\j\omega}}_{\omega=\omega_pc} = 28.1 dB
 \end{align}
 
-Gain Margin \brak{$GM$} :
+Gain Margin {$GM$} :
 \begin{align}
     GM &= 0 - \abs{G\brak{\j\omega}H\brak{\j\omega}}_{\omega=\omega_pc} dB
     \\&= -28.1 dB
@@ -116,10 +119,9 @@ At the gain crossover frequency $\omega_{gc}$:
     \abs{G\brak{\j\omega}H\brak{\j\omega}}_{\omega=\omega_{gc}} = 1
 \end{align}
 
-From \eqref{ee18btech11045_gainGH}, At $\omega_{gc}$:
+From \eqref{ee18btech11045_gainGH},
 \begin{align}
-    10^4\brak{\brak{8-\omega^2}^2 + \brak{6\omega}^2}=
-    \brak{3\omega^2}^2 + \brak{10\omega - \omega^3}^2
+    10^4\brak{\brak{8-\omega^2}^2 + \brak{6\omega}^2} = 9\omega^4 + \brak{10\omega - \omega^3}^2
 \end{align}
 \begin{align}
     \implies \omega_{gc} = 100.15 rad/sec
