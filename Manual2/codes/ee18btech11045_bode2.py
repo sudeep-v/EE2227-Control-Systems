@@ -1,6 +1,6 @@
 #if using termux
-import subprocess
-import shlex
+#import subprocess
+#import shlex
 #end if
 
 import numpy as np
@@ -20,14 +20,14 @@ mag, phase, omega = control.bode(G,w)
 plt.subplot(2,1,1)
 plt.ylabel('Magnitude(dB)')
 plt.semilogx(omega,20*np.log(mag))
-plt.plot(5.8,50,'o')
-plt.text(5.8+0.1,50+10, '({}, {})'.format(5.8,27))
+plt.plot(5.8,28.1,'o')
+plt.text(5.8+0.1,28.1+10, '({}, {})'.format(5.8,28.1))
 plt.plot(100,0,'o')
 plt.text(100+0.1,0+10, '({}, {})'.format(100,0))
 plt.axvline(x=5.8, linestyle='dashed')
 plt.axvline(x=100, linestyle='dashed')
 plt.axhline(y=0, linestyle='dashed')
-plt.axhline(y=50, linestyle='dashed')
+plt.axhline(y=26.2, linestyle='dashed')
 plt.plot()
 plt.grid()
 
