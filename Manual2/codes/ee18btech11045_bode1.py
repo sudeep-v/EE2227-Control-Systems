@@ -18,8 +18,8 @@ Gs = control.TransferFunction([100,600,800,0],[1,97,610,800])
 out = control.bode(Gs,w,dB=1,deg=1)
 
 #if using termux
-#plt.savefig('./figs/ee18btech11045/ee18btech11045.pdf')
-#plt.savefig('./figs/ee18btech11045/ee18btech11045.eps')
-#subprocess.run(shlex.split("termux-open ./figs/ee18btech11016/ee18btech11016.pdf"))
+plt.savefig('./figs/ee18btech11045/ee18btech11045_bode1.pdf')
+plt.savefig('./figs/ee18btech11045/ee18btech11045_bode1.eps')
+subprocess.run(shlex.split("termux-open ./figs/ee18btech11045/ee18btech11045_bode1.pdf"))
 #else
-plt.savefig('./ee18btech11045.eps')
+#plt.show()
